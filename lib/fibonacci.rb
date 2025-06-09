@@ -1,14 +1,23 @@
-# Method returns specified sequence of fib numbers counting from zero, not one.
-# For example, fibs(3) returns [0, 1, 1, 2], not [0, 1, 1].
+# The following two methods return the specified sequence of fibonacci numbers
+# counting from zero, not one. For example, fibs(3) returns [0, 1, 1, 2],
+# not [0, 1, 1]. The first method is iterative and the second method is
+# recursive.
+
 def fibs(num)
   sequence = []
-  i = 0
-  until i > num
-    sequence << i if (0..1).cover?(i)
-    sequence << (sequence[-2] + sequence[-1]) if i > 1
-    i += 1
+  iterator = 0
+  until iterator > num
+    sequence << iterator if (0..1).cover?(iterator)
+    sequence << (sequence[-2] + sequence[-1]) if iterator > 1
+    iterator += 1
   end
   sequence
 end
 
-p fibs(7)
+def fibs_rec(num, iterator = 0, sequence = [])
+  return sequence if iterator > num
+
+  sequence << iterator if (0..1).cover?(iterator)
+  sequence << (sequence[-2] + sequence[-1]) if iterator > 1
+  fibs_rec(num, iterator + 1, sequence)
+end
