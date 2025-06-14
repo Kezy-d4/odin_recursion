@@ -5,3 +5,5 @@ source "https://rubygems.org"
 gem "rubocop", "~> 1.76", require: false
 
 gem "rubocop-performance", "~> 1.25", require: false
+
+gem "prime", "~> 0.1.3"
